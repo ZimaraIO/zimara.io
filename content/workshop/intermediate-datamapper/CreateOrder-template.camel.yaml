@@ -1,0 +1,97 @@
+- route:
+    id: CreateOrder
+    from:
+      id: from-9093
+      uri: timer
+      parameters:
+        delay: "1000"
+        period: "3000"
+        timerName: template
+      steps:
+        - to:
+            id: to-3314
+            uri: direct
+            parameters:
+              name: GetAccount
+        - to:
+            id: to-2267
+            uri: direct
+            parameters:
+              name: GetCart
+        - to:
+            id: to-4208
+            uri: direct
+            parameters:
+              name: GetOrderSequence
+        - log:
+            id: log-1837
+            message: ${body}
+- route:
+    id: GetAccount
+    from:
+      id: from-1620
+      uri: direct
+      parameters:
+        name: GetAccount
+      steps:
+        - setVariable:
+            id: setVariable-2581
+            expression:
+              simple:
+                expression: >-
+                  <kaoto:Account AccountId="acc001"
+                  xmlns:kaoto="kaoto.datamapper.test">
+                    <Name>Jane Doe</Name>
+                    <Address>Purkyňova 111, 612 00</Address>
+                    <City>Brno-Medlánky</City>
+                    <Country>Česká republika</Country>
+                  </kaoto:Account>
+            name: account
+        - convertVariableTo:
+            id: convertVariableTo-3000
+            name: account
+            type: org.w3c.dom.Document
+- route:
+    id: GetCart
+    from:
+      id: "1111"
+      uri: direct
+      parameters:
+        name: GetCart
+      steps:
+        - setBody:
+            id: setBody-3132
+            expression:
+              simple:
+                expression: |-
+                  <kaoto:Cart xmlns:kaoto="kaoto.datamapper.test">
+                    <Item>
+                      <Title>Shadowman T-shirts</Title>
+                      <Note>XL</Note>
+                      <Quantity>10</Quantity>
+                      <Price>25.00</Price>
+                    </Item>
+                    <Item>
+                      <Title>Kaoto T-shirts</Title>
+                      <Note>L</Note>
+                      <Quantity>5</Quantity>
+                      <Price>24.50</Price>
+                    </Item>
+                  </kaoto:Cart>
+        - convertBodyTo:
+            id: convertBodyTo-1207
+            type: org.w3c.dom.Document
+- route:
+    id: GetOrderSequence
+    from:
+      id: from-4065
+      uri: direct
+      parameters:
+        name: GetOrderSequence
+      steps:
+        - setVariable:
+            id: setVariable-2655
+            expression:
+              simple:
+                expression: nnnn
+            name: orderSequence

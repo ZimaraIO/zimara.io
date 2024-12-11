@@ -1,0 +1,6 @@
+<!-- This is a shortcode, meant to create collapsible sections -->
+<!-- https://gohugo.io/templates/shortcode/ -->
+<details>
+    <summary>{{ (.Get "title") }}</summary>
+    {{ .Inner | markdownify }}
+</details>
