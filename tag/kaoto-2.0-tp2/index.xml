@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaoto 2.0 TP2 | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/kaoto-2.0-tp2/</link><atom:link href="https://kaoto.io/tag/kaoto-2.0-tp2/index.xml" rel="self" type="application/rss+xml"/><description>Kaoto 2.0 TP2</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 29 Feb 2024 11:00:00 +0200</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Kaoto 2.0 TP2</title><link>https://kaoto.io/tag/kaoto-2.0-tp2/</link></image><item><title>Version 2.0.0 TP2 released!</title><link>https://kaoto.io/blog/kaoto-2.0.tp2-release/</link><pubDate>Thu, 29 Feb 2024 11:00:00 +0200</pubDate><guid>https://kaoto.io/blog/kaoto-2.0.tp2-release/</guid><description>&lt;p>&lt;strong>We are happy to announce the release of Kaoto 2.0.0 TP2 (Tech Preview 2).&lt;/strong>&lt;/p>
+&lt;p>We strive to make Kaoto a top choice when it comes to working with &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> integrations. To achieve that we continuously add new features and enhancements to make the integration developer&amp;rsquo;s life easier and closely collaborate with the &lt;a href="https://camel.apache.org/" target="_blank" rel="noopener">Apache Camel&lt;/a> project.&lt;/p>
+&lt;h2 id="new-features">New Features&lt;/h2>
+&lt;h4 id="camel-routes-configuration">Camel routes configuration&lt;/h4>
+&lt;p>We added root containers for Camel Routes and Kamelets, so you can configure their behavior.&lt;/p>
+&lt;h4 id="support-for-kamelet-beans">Support for Kamelet Beans&lt;/h4>
+&lt;p>Added support for Kamelet Beans using the Form.&lt;/p>
+&lt;h4 id="kamelet-configuration">Kamelet configuration&lt;/h4>
+&lt;p>Included a custom form to configure the most common aspects of a Kamelet easily.&lt;/p>
+&lt;h4 id="dropdown-placeholders">Dropdown placeholders&lt;/h4>
+&lt;p>Users can now enter placeholders in drop-down boxes, enhancing flexibility in defining component configurations.&lt;/p>
+&lt;h2 id="ux-improvements">UX Improvements&lt;/h2>
+&lt;h4 id="sticky-configuration-form-header">Sticky Configuration Form header&lt;/h4>
+&lt;p>We’ve made the form title sticky to ensure a better experience while scrolling through options.&lt;/p>
+&lt;h4 id="sticky-catalog-filter-controls">Sticky Catalog filter controls&lt;/h4>
+&lt;p>Now the catalog’s filter sticks to the top, so the selected filter is always visible.&lt;/p>
+&lt;h4 id="catalog-filter-counts">Catalog filter counts&lt;/h4>
+&lt;p>When searching for a component or a pattern, we included the result count from other categories as well, so we can see what’s available at a glance&lt;/p>
+&lt;h4 id="sorted-patterns-and-components-parameters">Sorted Patterns and Components parameters&lt;/h4>
+&lt;p>For ease of navigation, patterns parameters, and component parameters are now sorted by the Catalog index.&lt;/p>
+&lt;h4 id="consistent-field-spacing">Consistent Field Spacing&lt;/h4>
+&lt;p>We&amp;rsquo;ve improved field spacing across different components for a cleaner and more consistent look.&lt;/p>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;ul>
+&lt;li>The form scroll bar is outside of the form, to avoid colliding with the form controls&lt;/li>
+&lt;li>Empty objects &lt;code>{}&lt;/code> are not persisted in the source code&lt;/li>
+&lt;li>Fix typos in the Bean and OnException definitions upstream (&lt;a href="https://issues.apache.org/jira/browse/CAMEL-20462" target="_blank" rel="noopener">CAMEL-20462&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto-next/releases/tag/2.0.0-TP2" target="_blank" rel="noopener">change log&lt;/a>.&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try!&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto-next/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;p>&lt;a href="https://github.com/eerkmen" target="_blank" rel="noopener">@eerkmen&lt;/a> &lt;a href="https://github.com/corners2wall" target="_blank" rel="noopener">@corners2wall&lt;/a> &lt;a href="https://github.com/mkralik3" target="_blank" rel="noopener">@mkralik3&lt;/a> &lt;a href="https://github.com/d4n1b" target="_blank" rel="noopener">@d4n1b&lt;/a> &lt;a href="https://github.com/tplevko" target="_blank" rel="noopener">@tplevko&lt;/a> &lt;a href="https://github.com/apupier" target="_blank" rel="noopener">@apupier&lt;/a> &lt;a href="https://github.com/igarashitm" target="_blank" rel="noopener">@igarashitm&lt;/a> &lt;a href="https://github.com/mmelko" target="_blank" rel="noopener">@mmelko&lt;/a> &lt;a href="https://github.com/lordrip" target="_blank" rel="noopener">@lordrip&lt;/a> &lt;a href="https://github.com/lhein" target="_blank" rel="noopener">@lhein&lt;/a> &lt;a href="https://github.com/shivamG640" target="_blank" rel="noopener">@shivamG640&lt;/a> &lt;a href="https://github.com/lburgazzoli" target="_blank" rel="noopener">@lburgazzoli&lt;/a> &lt;a href="https://github.com/brunoNetId" target="_blank" rel="noopener">@brunoNetId&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/GuilhermeCamposo" target="_blank" rel="noopener">@GuilhermeCamposo&lt;/a> &lt;a href="https://github.com/ibek" target="_blank" rel="noopener">@ibek&lt;/a> &lt;a href="https://github.com/jcordes73" target="_blank" rel="noopener">@jcordes73&lt;/a> &lt;a href="https://github.com/Mdenisco" target="_blank" rel="noopener">@Mdenisco&lt;/a> &lt;a href="https://github.com/phantomjinx" target="_blank" rel="noopener">@phantomjinx&lt;/a> &lt;a href="https://github.com/rstroop" target="_blank" rel="noopener">@rstroop&lt;/a> &lt;a href="https://github.com/abkieling" target="_blank" rel="noopener">@abkieling&lt;/a> &lt;a href="https://github.com/Shivam-Gu" target="_blank" rel="noopener">@Shivam-Gu&lt;/a> &lt;a href="https://github.com/kumaradityaraj" target="_blank" rel="noopener">@kumaradityaraj&lt;/a> &lt;a href="https://github.com/oscerd" target="_blank" rel="noopener">@oscerd&lt;/a> &lt;a href="https://github.com/djelinek" target="_blank" rel="noopener">@djelinek&lt;/a> &lt;a href="https://github.com/davsclaus" target="_blank" rel="noopener">@davsclaus&lt;/a>&lt;/p>
+&lt;p>Apologies in advance if we&amp;rsquo;ve missed anyone. 🙂&lt;/p></description></item></channel></rss>

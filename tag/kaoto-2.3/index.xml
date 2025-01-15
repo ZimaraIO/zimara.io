@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaoto 2.3 | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/kaoto-2.3/</link><atom:link href="https://kaoto.io/tag/kaoto-2.3/index.xml" rel="self" type="application/rss+xml"/><description>Kaoto 2.3</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0600</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Kaoto 2.3</title><link>https://kaoto.io/tag/kaoto-2.3/</link></image><item><title>Kaoto 2.3 released</title><link>https://kaoto.io/blog/kaoto-2.3-release/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.3-release/</guid><description>&lt;h2 id="whats-new">What&amp;rsquo;s new?&lt;/h2>
+&lt;p>It has been over 2 months since the Kaoto 2.2 release and we are excited to provide you now with the new Kaoto 2.3 version.
+Please take a look below to learn about the exciting new things we added in this release.&lt;/p>
+&lt;p align="center">&lt;img src="./CamelJedi.png" alt="Camel Jedi" style="height: 400px;"/>&lt;/p>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;h4 id="more-camel-versions-included-by-default">More Camel versions included by default&lt;/h4>
+&lt;p>We have added more choices to the Camel version selector. Now you will be able to choose between the latest community release, the latest LTS community release as well as the Red Hat Build of Apache Camel releases.&lt;/p>
+&lt;p align="center">&lt;img src="./camel-versions.gif" alt="showcasing the version selector" style="height: 400px;"/>&lt;/p>
+&lt;h4 id="visual-data-mapping--transformation-editor-tech-preview-available-in-vs-code">Visual Data Mapping &amp;amp; Transformation Editor (Tech Preview available in VS Code)&lt;/h4>
+&lt;p>This feature has been requested a lot and we are very happy to provide you with the first iteration of a fully new Data Mapping UI which enables you to do your mappings and transformations in a drag and drop way. In comparison to AtlasMap the new Kaoto DataMapper works based on XSLT and does not require a specific custom runtime component to work. &lt;br>&lt;/p>
+&lt;p align="center">&lt;img src="./datamapper-icon.png" alt="showcasing the datamapper icon"/>&lt;/p>
+&lt;p>This first iteration marks only the beginning of the Kaoto DataMapper story. There are still many more features and capabilities we want to add over the coming months.&lt;/p>
+&lt;p align="center">&lt;img src="./featured.png" alt="showcasing the datamapper" style="height: 600px;"/>&lt;/p>
+&lt;p>Click the video below to watch a short Kaoto DataMapper introduction:
+&lt;a href="https://www.youtube.com/watch?v=iz0yYThHZMc" target="_blank" rel="noopener">
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img src="https://img.youtube.com/vi/iz0yYThHZMc/hqdefault.jpg" alt="Watch the Kaoto DataMapper introduction" loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/a>&lt;/p>
+&lt;h4 id="new-action-toolbar">New Action Toolbar&lt;/h4>
+&lt;p>Our long term goal is to improve the usability in a way that users can reach most of the functionalities of Kaoto with the least amount of clicks and searching. Efficiency is key to make using Kaoto a fun experience for everyone. A first step in that direction is the new toolbar. In the long run we hope to make this the replacement for the right-click context menu.&lt;/p>
+&lt;p align="center">&lt;img src="./toolbar.png" alt="showcasing the toolbar" style="height: 200px;"/>&lt;/p>
+&lt;p>In the default settings the toolbar will be visible when hovering over a step or group. However you can also change that behavior in the &lt;em>Settings&lt;/em> dialog to be only visible when selecting a step or group.&lt;/p>
+&lt;h4 id="quick-action-for-appending-and-inserting-new-steps">Quick Action for appending and inserting new steps&lt;/h4>
+&lt;p>Prototyping a new integration should be as easy and fast as possible in a visual designer. To get closer to that state we added a quick action at the end of each group in your integration which is visible as an &lt;strong>arrow&lt;/strong> button. You can now easily append new steps to your integration by clicking that button.&lt;/p>
+&lt;p align="center">&lt;img src="./append.png" alt="showcasing the append button" style="height: 200px;"/>&lt;/p>
+&lt;p>We also introduced an easier way to insert steps between existing ones. You can now just hover over the connection between two steps and this will reveal a &lt;strong>+&lt;/strong> button you can use to insert a new step.&lt;/p>
+&lt;p align="center">&lt;img src="./insert.png" alt="showcasing the insert button" style="height: 200px;"/>&lt;/p>
+&lt;h4 id="new-placeholders">New Placeholders&lt;/h4>
+&lt;p>Whenever there is a container step without any step contained we will now show you a placeholder labeled &amp;ldquo;&lt;em>Add step&lt;/em>&amp;rdquo; to signal where you can add new steps.&lt;/p>
+&lt;p align="center">&lt;img src="./placeholders.png" alt="showcasing the placeholders" style="height: 300px;"/>&lt;/p>
+&lt;h4 id="new-action-enable-all">New Action: Enable All&lt;/h4>
+&lt;p>During the creation of your integration you may have disabled one or more steps for various purposes. Going through your integration now and manually enabling all the deactived steps can be a tedious task and this situation led to the addition of the new &amp;ldquo;Enable All&amp;rdquo; action. You can now reactivate all the disabled steps with a single click.&lt;/p>
+&lt;p align="center">&lt;img src="./enableall.png" alt="showcasing the enableAll button" style="height: 400px;"/>&lt;/p>
+&lt;h4 id="new-action-show-all">New Action: Show All&lt;/h4>
+&lt;p>There is a new action available now which lets you quickly show or hide all of your routes.&lt;/p>
+&lt;p align="center">&lt;img src="./showall.gif" alt="showcasing the Show All button" />&lt;/p>
+&lt;h4 id="other-enhancements">Other Enhancements&lt;/h4>
+&lt;ul>
+&lt;li>Improved visualization of routes&lt;/li>
+&lt;li>Easily close the configuration panel by clicking on a free canvas space&lt;/li>
+&lt;li>The description of a step will be expanded on selection&lt;/li>
+&lt;li>Improved search function in the catalog&lt;/li>
+&lt;li>Support for the Tokenizer EIP&lt;/li>
+&lt;li>&amp;hellip;and many more little tweaks and fixes&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.3.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try!&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kaoto 2.2 | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/tag/kaoto-2.2/</link><atom:link href="https://kaoto.io/tag/kaoto-2.2/index.xml" rel="self" type="application/rss+xml"/><description>Kaoto 2.2</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 20 Sep 2024 00:00:00 +0600</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Kaoto 2.2</title><link>https://kaoto.io/tag/kaoto-2.2/</link></image><item><title>Kaoto 2.2 released</title><link>https://kaoto.io/blog/kaoto-2.2-release/</link><pubDate>Fri, 20 Sep 2024 00:00:00 +0600</pubDate><guid>https://kaoto.io/blog/kaoto-2.2-release/</guid><description>&lt;h2 id="say-hello-to-kaoto-220">Say &amp;ldquo;Hello&amp;rdquo; to Kaoto 2.2.0&lt;/h2>
+&lt;p>For this release, we focused on enhancing the usability and the look and feel of the graphical editor. While doing so we also fixed several reported issues, for instance, the visualization of parallel steps inside the &lt;code>Multicast&lt;/code> and &lt;code>LoadBalance&lt;/code> EIPs. We also added new icons for existing and new &lt;a href="http://camel.apache.org" target="_blank" rel="noopener">Apache Camel&lt;/a> components, which helps to better identify them in the catalog as well as in your integrations. This release also ships with &lt;a href="https://camel.apache.org/blog/2024/09/RELEASE-4.8.0/" target="_blank" rel="noopener">Apache Camel 4.8.0&lt;/a> support.&lt;/p>
+&lt;h2 id="give-it-a-try">Give it a try!&lt;/h2>
+&lt;ul>
+&lt;li>Kaoto &lt;a href="https://kaoto.io/docs/quickstart/">quickstart&lt;/a>.&lt;/li>
+&lt;li>Kaoto is available as a &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-kaoto" target="_blank" rel="noopener">VS Code extension&lt;/a>.&lt;/li>
+&lt;li>Kaoto &lt;a href="https://red.ht/kaoto" target="_blank" rel="noopener">showcase deployment&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="features--improvements">Features &amp;amp; Improvements&lt;/h2>
+&lt;ul>
+&lt;li>Apache Camel 4.8.0 LTS support&lt;/li>
+&lt;li>More icons for Camel components&lt;/li>
+&lt;li>Pagination support inside the catalog&lt;/li>
+&lt;li>Introduction of tabs in the configuration panel to quickly switch between &amp;ldquo;Required&amp;rdquo;, &amp;ldquo;Modified&amp;rdquo; and &amp;ldquo;All fields&amp;rdquo;&lt;/li>
+&lt;li>Easier access to the expressions field&lt;/li>
+&lt;li>Introduction of containers in the graphical editor&lt;/li>
+&lt;li>New options to switch between displaying the id or the description of steps&lt;/li>
+&lt;li>Support for multiValue parameter&lt;/li>
+&lt;li>Several other small enhancements and bug fixes&lt;/li>
+&lt;/ul>
+&lt;h2 id="bug-fixes">Bug Fixes&lt;/h2>
+&lt;p>For a full list of changes please refer to the &lt;a href="https://github.com/KaotoIO/kaoto/releases/tag/2.2.0" target="_blank" rel="noopener">change log.&lt;/a>&lt;/p>
+&lt;h2 id="lets-build-it-together">Let’s Build it Together&lt;/h2>
+&lt;p>Let us know what you think by joining us in the &lt;a href="https://github.com/orgs/KaotoIO/discussions" target="_blank" rel="noopener">GitHub discussions&lt;/a>.
+Do you have an idea how to improve Kaoto? Would you love to see a useful feature implemented or simply ask a question? Please &lt;a href="https://github.com/KaotoIO/kaoto/issues/new/choose" target="_blank" rel="noopener">create an issue&lt;/a>.&lt;/p>
+&lt;h2 id="a-big-shoutout-to-our-amazing-contributors">A big shoutout to our amazing contributors&lt;/h2>
+&lt;p>Thank you to everyone who made this release possible, whether by a code contribution, feedback, advocacy, or participating in an important discussion with us. ❤️&lt;/p></description></item></channel></rss>

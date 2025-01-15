@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Beginner | Kaoto - The Integration Designer for Apache Camel</title><link>https://kaoto.io/category/beginner/</link><atom:link href="https://kaoto.io/category/beginner/index.xml" rel="self" type="application/rss+xml"/><description>Beginner</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 24 Jan 2024 12:14:34 +0600</lastBuildDate><image><url>https://kaoto.io/media/icon_hu28704772c4f249dcf6bfdf2e89e809cb_62841_512x512_fill_lanczos_center_3.png</url><title>Beginner</title><link>https://kaoto.io/category/beginner/</link></image><item><title>Listen to a folder</title><link>https://kaoto.io/workshop/beginner-file/</link><pubDate>Wed, 24 Jan 2024 12:14:34 +0600</pubDate><guid>https://kaoto.io/workshop/beginner-file/</guid><description>&lt;h2 id="1---log-changes">1 - Log changes&lt;/h2>
+&lt;p>The goals for this exercise are:&lt;/p>
+&lt;ul>
+&lt;li>Create a new Camel route and let it start with a &lt;code>file-watch&lt;/code> step, which will watch a local folder like &lt;code>/tmp/tutorial/&lt;/code> and configure the parameter &lt;code>recursive&lt;/code> as &lt;code>false&lt;/code>, because we don&amp;rsquo;t want to watch subfolders&lt;/li>
+&lt;li>Then &lt;code>log&lt;/code> the detected change with an output like &lt;code>Detected ${header.CamelFileEventType} on file ${header.CamelFileName} at ${header.CamelFileLastModified}&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="hints">Hints&lt;/h3>
+&lt;p>Helpful advice for doing things better or more easily.&lt;/p>
+&lt;ul>
+&lt;li>To add new, delete or replace steps on the canvas, right click an existing node. This will provide you a contextual menu.&lt;/li>
+&lt;li>To configure a step and fill the configuration properties, click on the step icon in the canvas.&lt;/li>
+&lt;li>The first step you want to add is called &lt;code>file-watch&lt;/code>. Don&amp;rsquo;t confuse it with &lt;code>file&lt;/code>&lt;/li>
+&lt;li>The second step is a &lt;code>log&lt;/code> processor. There is also a &lt;code>log&lt;/code> component available, but we use the processor here.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-file/1-log-changes.webm" type="video/webm">
+&lt;/video>
+&lt;p>At this point, the source editor should show something similar to the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">route&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">route-2341&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">from&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">from-2542&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">file-watch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/tmp/tutorial/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">recursive&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-4286&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Detected ${header.CamelFileEventType} on file ${header.CamelFileName}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">at ${header.CamelFileLastModified}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If it doesn&amp;rsquo;t look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.&lt;/p>
+&lt;hr>
+&lt;h2 id="2---add-a-filter">2 - Add a filter&lt;/h2>
+&lt;p>Now we want to add a &lt;code>filter&lt;/code> and a &lt;code>file&lt;/code> between the &lt;code>file-watch&lt;/code> and the &lt;code>log&lt;/code>, which copies the files to another folder everytime a file gets created.&lt;/p>
+&lt;p>This will require adding two steps:&lt;/p>
+&lt;ul>
+&lt;li>A step &lt;code>filter&lt;/code> that will open a branch of steps that will be executed only when &lt;code>${header.CamelFileEventType}&lt;/code> equals &lt;code>CREATE&lt;/code>&lt;/li>
+&lt;li>A step &lt;code>file&lt;/code> to create the new file in &lt;code>/tmp/backup/&lt;/code> or whatever folder you choose (different from the previous one)&lt;/li>
+&lt;/ul>
+&lt;h3 id="hints-1">Hints&lt;/h3>
+&lt;ul>
+&lt;li>To create a new file, you have to use the step &lt;code>file&lt;/code>. Make sure to add it &lt;code>into&lt;/code> the &lt;code>filter&lt;/code> step.&lt;/li>
+&lt;li>Configure the &lt;code>directory name&lt;/code> of the &lt;code>file&lt;/code> step as &lt;code>/tmp/backup/&lt;/code> (or whatever folder you are using)&lt;/li>
+&lt;li>The condition of the filter is configured in the filter expression field as &lt;code>${header.CamelFileEventType} == 'CREATE'&lt;/code> using the &lt;code>simple&lt;/code> expression language.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution-1">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-file/2-add-filter.webm" type="video/webm">
+&lt;/video>
+&lt;p>At this point, the source editor should show something similar to the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">route&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">route-2341&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">from&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">from-2542&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">file-watch&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/tmp/tutorial/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">recursive&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">filter&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">filter-1643&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">to&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">to-2886&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">file&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">directoryName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/tmp/backup/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${header.CamelFileEventType} == &amp;#39;CREATE&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-4286&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Detected ${header.CamelFileEventType} on file ${header.CamelFileName}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="l">at ${header.CamelFileLastModified}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If it doesn&amp;rsquo;t look like that but you want to go to the following exercise, you can copy and paste that code to the source editor and save the changes. This will update the design editor as well.&lt;/p>
+&lt;hr>
+&lt;h2 id="3---testing-your-route">3 - Testing your route&lt;/h2>
+&lt;p>So after we finished setting up our little Camel route it would be great if we could test it locally, right? Ok, then let&amp;rsquo;s do that now!&lt;/p>
+&lt;p>Maybe you already discovered the little buttons on the top right of the Kaoto editor. You can hover over them to know more about what they are doing. In the picture below the launch button has been marked with red coloring.&lt;/p>
+&lt;p>
+&lt;figure id="figure-launch-button">
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Launch Button" srcset="
+/workshop/beginner-file/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_e6e9fdbe8fab8297359b786767789400.webp 400w,
+/workshop/beginner-file/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_dbe722e22f92928569994828c54f79a8.webp 760w,
+/workshop/beginner-file/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/workshop/beginner-file/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_e6e9fdbe8fab8297359b786767789400.webp"
+width="760"
+height="343"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Launch Button
+&lt;/figcaption>&lt;/figure>
+&lt;/p>
+&lt;p>Click this button now and watch what happens. If everything goes well you should see a similar output as in the image below.&lt;/p>
+&lt;p>
+&lt;figure id="figure-terminal-output">
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Terminal Output" srcset="
+/workshop/beginner-file/terminal-output_huda6691421e8dc075097deb3bbf10a878_87504_4481bd0fa26eafd907bd5b8d6d442f5a.webp 400w,
+/workshop/beginner-file/terminal-output_huda6691421e8dc075097deb3bbf10a878_87504_5fc8393a60dbc7e1581dd539e10dd654.webp 760w,
+/workshop/beginner-file/terminal-output_huda6691421e8dc075097deb3bbf10a878_87504_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/workshop/beginner-file/terminal-output_huda6691421e8dc075097deb3bbf10a878_87504_4481bd0fa26eafd907bd5b8d6d442f5a.webp"
+width="760"
+height="127"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Terminal Output
+&lt;/figcaption>&lt;/figure>
+&lt;/p>
+&lt;p>If you see something different and maybe errors, please check the &lt;code>Hints&lt;/code> section below.&lt;/p>
+&lt;h3 id="hints-2">Hints&lt;/h3>
+&lt;ul>
+&lt;li>Please make sure that you have saved your route before running it.&lt;/li>
+&lt;li>Make sure you installed the &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack" target="_blank" rel="noopener">Extension Pack for Apache Camel&lt;/a> as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel JBang&lt;/a>, otherwise the launch will throw errors. (see &lt;a href="https://kaoto.io/docs/installation">Installation Guide&lt;/a>)&lt;/li>
+&lt;li>Make sure your folder (&lt;code>/tmp/tutorial/&lt;/code>) exists before running this integration.&lt;/li>
+&lt;li>This integration will work better when running it locally, as the folder must be on the same machine when it gets executed.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution-2">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-file/3-launch-route.webm" type="video/webm">
+&lt;/video>
+&lt;hr>
+&lt;h2 id="more-information">More information&lt;/h2>
+&lt;p>More information about Apache Camel routes can be found on &lt;a href="https://camel.apache.org/components/4.0.x/others/yaml-dsl.html" target="_blank" rel="noopener">the Apache Camel website&lt;/a>&lt;/p></description></item><item><title>Create a multiple choice route</title><link>https://kaoto.io/workshop/beginner-camel-choice/</link><pubDate>Wed, 24 Jan 2024 10:00:00 +0600</pubDate><guid>https://kaoto.io/workshop/beginner-camel-choice/</guid><description>&lt;h2 id="1---create-a-choice">1 - Create a choice&lt;/h2>
+&lt;p>The goals for this exercise are:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create a new Camel route and let it start with a &lt;code>timer&lt;/code> step, which will be named &lt;code>tutorial&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Then we set the body of the message (&lt;code>setBody&lt;/code>) to a random &lt;code>0&lt;/code> or &lt;code>1&lt;/code> value&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The third step will be a &lt;code>choice&lt;/code> step with a &lt;code>when&lt;/code> and an &lt;code>otherwise&lt;/code> branch&lt;/p>
+&lt;ul>
+&lt;li>The &lt;code>when&lt;/code> branch should be executed if the body of the message is &lt;code>1&lt;/code>&lt;/li>
+&lt;li>The &lt;code>otherwise&lt;/code> branch acts as the fallback and will automatically cover the case when the message body is &lt;code>0&lt;/code> or actually anything else than &lt;code>1&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Finally we will add a &lt;code>log&lt;/code> step to each of the branches&lt;/p>
+&lt;ul>
+&lt;li>For the &lt;code>1&lt;/code> case we will output &lt;code>&amp;quot;We got a one!&amp;quot;&lt;/code>&lt;/li>
+&lt;li>For the fallback we will print the message body with &lt;code>&amp;quot;We got a ${body}&amp;quot;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="hints">Hints&lt;/h3>
+&lt;ul>
+&lt;li>To configure a step and fill the configuration properties, click on the step icon&lt;/li>
+&lt;li>You can generate random numbers using the simple expression language function &lt;a href="https://camel.apache.org/components/4.0.x/languages/simple-language.html" target="_blank" rel="noopener">random&lt;/a>&lt;/li>
+&lt;li>The simple expression &lt;code>${random(2)}&lt;/code> will generate a random number between zero (included) and two (not included)&lt;/li>
+&lt;li>When configuring the &lt;code>setBody&lt;/code>, you can use the expression language &lt;code>Simple&lt;/code> and then the &lt;code>expression&lt;/code> used will be &lt;code>${random(2)}&lt;/code>&lt;/li>
+&lt;li>We have to fill the condition &lt;code>${body} == 1&lt;/code> in the &lt;code>when&lt;/code>&lt;/li>
+&lt;li>We add a &lt;code>log&lt;/code> step into a branch using the &lt;code>Insert into&lt;/code> context menu on the &lt;code>when&lt;/code> and &lt;code>otherwise&lt;/code> steps&lt;/li>
+&lt;li>Kaoto offers two &lt;code>log&lt;/code> steps to add: the camel component and the processor. For simplicity, we will choose the processor&lt;/li>
+&lt;li>The &lt;code>log&lt;/code> has a property &lt;code>message&lt;/code> which we need to fill as described in the goals&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-camel-choice/1-create-choice.webm" type="video/webm">
+&lt;/video>
+&lt;p>At this point, the source editor should show something similar to the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">route&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">route-1150&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">from&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">from-2530&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">timer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">period&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timerName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tutorial&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">setBody&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">setBody-3478&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${random(2)}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">choice&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">choice-2937&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">when&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">when-2316&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-5995&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">We got a one!&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${body} == 1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">otherwise&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">otherwise-2904&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-2668&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">We got a ${body}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If it doesn&amp;rsquo;t look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.&lt;/p>
+&lt;h2 id="2---set-header-instead-of-body">2 - Set Header instead of Body&lt;/h2>
+&lt;p>In this exercise we are going to modify the previously created route to replace the &lt;code>setBody&lt;/code> with a &lt;code>setHeader&lt;/code>.&lt;/p>
+&lt;p>The goal for this exercise is:&lt;/p>
+&lt;ul>
+&lt;li>Modify the route so instead of setting the body, we will use a header called &lt;code>myChoice&lt;/code> for the decision.&lt;/li>
+&lt;/ul>
+&lt;h3 id="hints-1">Hints&lt;/h3>
+&lt;ul>
+&lt;li>To replace an existing component, right click on it and choose the &lt;code>Replace&lt;/code> menu item&lt;/li>
+&lt;li>Watch out because there are two very similar written processors. Do not use the &lt;code>setHeaders&lt;/code> processor.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution-1">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-camel-choice/2-set-header.webm" type="video/webm">
+&lt;/video>
+&lt;p>At this point, the source editor should show the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">route&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">route-1150&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">from&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">from-2530&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">timer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">period&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timerName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tutorial&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">setHeader&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">setHeader-3233&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${random(2)}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">myChoice&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">choice&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">choice-2937&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">when&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">when-2316&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-5995&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">We got a one!&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${header.myChoice} == 1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">otherwise&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">otherwise-2904&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-2668&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">We got a ${body}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If it doesn&amp;rsquo;t look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.&lt;/p>
+&lt;h2 id="3---connect-to-an-external-service">3 - Connect to an external service&lt;/h2>
+&lt;p>In this exercise we are going to modify the previously created route to add calls to external APIs in the &lt;code>when&lt;/code> and &lt;code>otherwise&lt;/code> branches.&lt;/p>
+&lt;p>The goals for this exercise are:&lt;/p>
+&lt;ul>
+&lt;li>Modify the route so when the generated random number is &lt;code>0&lt;/code> it calls the service &lt;code>https://dog-api.kinduff.com/api/facts&lt;/code> to display a random dog fact on the log&lt;/li>
+&lt;li>Modify the route so when the generated random number is &lt;code>1&lt;/code> it calls the service &lt;code>https://cat-fact.herokuapp.com/facts/random&lt;/code> to display a random cat fact on the log&lt;/li>
+&lt;li>Only use a single &lt;code>log&lt;/code> at the end of the route&lt;/li>
+&lt;li>Change the log to just display the &lt;code>${body}&lt;/code> of the message&lt;/li>
+&lt;/ul>
+&lt;p>Note: these two services are testing services that we don&amp;rsquo;t control. Make sure they run properly before attempting to use them to prevent any weird errors.&lt;/p>
+&lt;h3 id="hints-2">Hints&lt;/h3>
+&lt;ul>
+&lt;li>To call an external service, you can use the &lt;code>https&lt;/code> component.&lt;/li>
+&lt;li>You just need to configure the &lt;code>HTTP Uri&lt;/code> with the proper value.&lt;/li>
+&lt;li>To remove a step from a flow branch, there is a &lt;code>-&lt;/code> button that appears when you hover over the step.&lt;/li>
+&lt;li>You can add steps after the &lt;code>choice&lt;/code> by clicking on the &lt;code>+&lt;/code> button near it.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution-2">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-camel-choice/3-connect-external-service.webm" type="video/webm">
+&lt;/video>
+&lt;p>At this point, the source editor should show the following code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">- &lt;span class="nt">route&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">route-1150&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">from&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">from-2530&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">timer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">period&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">timerName&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">tutorial&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">setHeader&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">setHeader-3234&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${random(2)}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">myChoice&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">choice&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">choice-2937&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">when&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">when-2316&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">to&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">to-1376&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">httpUri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://cat-fact.herokuapp.com/facts/random&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">simple&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">expression&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${header.myChoice} == 1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">otherwise&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">otherwise-2904&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">to&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">to-2860&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">uri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">parameters&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">httpUri&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://dog-api.kinduff.com/api/facts&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">log&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">id&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">log-2479&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">message&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${body}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If it doesn&amp;rsquo;t look like that but you still want to go to the following exercise, you can copy and paste that code to your source editor and save the changes. This will update the design editor as well.&lt;/p>
+&lt;h2 id="4---testing-your-route">4 - Testing your route&lt;/h2>
+&lt;p>So after we finished setting up our little Camel route it would be great if we could test it locally, right? Ok, then let&amp;rsquo;s do that now!&lt;/p>
+&lt;p>Maybe you already discovered the little buttons on the top right of the Kaoto editor. You can hover over them to know more about what they are doing. In the picture below the launch button has been marked with red coloring.&lt;/p>
+&lt;p>
+&lt;figure id="figure-launch-button">
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Launch Button" srcset="
+/workshop/beginner-camel-choice/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_e6e9fdbe8fab8297359b786767789400.webp 400w,
+/workshop/beginner-camel-choice/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_dbe722e22f92928569994828c54f79a8.webp 760w,
+/workshop/beginner-camel-choice/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/workshop/beginner-camel-choice/launch-button_hu78a077c8a5af68fbccd71ef9ea54c4db_54169_e6e9fdbe8fab8297359b786767789400.webp"
+width="760"
+height="343"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Launch Button
+&lt;/figcaption>&lt;/figure>
+&lt;/p>
+&lt;p>Click this button now and watch what happens. If everything goes well you should see a similar output as in the image below.&lt;/p>
+&lt;p>
+&lt;figure id="figure-terminal-output">
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="Terminal Output" srcset="
+/workshop/beginner-camel-choice/terminal-output_hub6aeacf6a75c39997abcd0211122f117_215155_158f5b1f0291dfeed9e56ff901cc7e87.webp 400w,
+/workshop/beginner-camel-choice/terminal-output_hub6aeacf6a75c39997abcd0211122f117_215155_40ce713fcbb88105179b1297155a59c8.webp 760w,
+/workshop/beginner-camel-choice/terminal-output_hub6aeacf6a75c39997abcd0211122f117_215155_1200x1200_fit_q95_h2_lanczos_3.webp 1200w"
+src="https://kaoto.io/workshop/beginner-camel-choice/terminal-output_hub6aeacf6a75c39997abcd0211122f117_215155_158f5b1f0291dfeed9e56ff901cc7e87.webp"
+width="760"
+height="160"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;figcaption>
+Terminal Output
+&lt;/figcaption>&lt;/figure>
+&lt;/p>
+&lt;p>If you see something different and maybe errors, please check the &lt;code>Hints&lt;/code> section below.&lt;/p>
+&lt;h3 id="hints-3">Hints&lt;/h3>
+&lt;ul>
+&lt;li>Please make sure that you have saved your route before running it.&lt;/li>
+&lt;li>Make sure you installed the &lt;a href="https://marketplace.visualstudio.com/items?itemName=redhat.apache-camel-extension-pack" target="_blank" rel="noopener">Extension Pack for Apache Camel&lt;/a> as this will add buttons for easy access to launch / debug functionality. Also ensure you have installed &lt;a href="https://camel.apache.org/manual/camel-jbang.html" target="_blank" rel="noopener">Camel JBang&lt;/a>, otherwise the launch will throw errors. (see &lt;a href="https://kaoto.io/docs/installation">Installation Guide&lt;/a>)&lt;/li>
+&lt;li>This integration will work better when running it locally, as the folder must be on the same machine when it gets executed.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solution-3">Solution&lt;/h3>
+&lt;p>The following video showcases the solution.&lt;/p>
+&lt;video controls >
+&lt;source src="https://kaoto.io/workshop/beginner-camel-choice/4-launch-route.webm" type="video/webm">
+&lt;/video>
+&lt;h2 id="more-information">More information&lt;/h2>
+&lt;p>More information about Apache Camel routes can be found on &lt;a href="https://camel.apache.org/components/4.0.x/others/yaml-dsl.html" target="_blank" rel="noopener">the Apache Camel website&lt;/a>&lt;/p></description></item></channel></rss>
